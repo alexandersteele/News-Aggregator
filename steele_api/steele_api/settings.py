@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0#!@ark*@iu_8#)14!8itdo@bfz1qa^xeg9%d6udskdnyv#kv='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS =  ["sc16a2s.pythonanywhere.com"]
 
 
 # Application definition
@@ -122,4 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+DATE_INPUT_FORMATS = ('%d-%m-%Y','%Y-%m-%d')

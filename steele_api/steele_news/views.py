@@ -45,10 +45,12 @@ def post_story(request):
 
     if (request.method == 'POST'):
 
-        headline = request.POST.get('headline')
-        category = request.POST.get('category')
-        region = request.POST.get('region')
-        details = request.POST.get('details')
+        data = json.loads(request.body)
+
+        headline = data['headline']
+        category = data['category']
+        region = data['region']
+        details = data['details']
 
         if (request.user.is_authenticated):
             
@@ -78,9 +80,12 @@ def delete_story (request):
 @csrf_exempt
 def get_stories(request):
     if (request.method == 'GET'):
-        category = request.GET.get('category')
-        region = request.GET.get('region')
-        date = request.GET.get('date')
+
+        data = json.loads(request.body)
+        
+        category = data['category']
+        region = data['region']
+        date = data['data']
 
         stories = NewsStory.objects.all()
 
